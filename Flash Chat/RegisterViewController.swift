@@ -20,7 +20,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet var passwordTextfield: UITextField!
     var isUsernameTaken : Bool = false
     let fireBaseRef = Database.database().reference()
-    var usersArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +45,8 @@ class RegisterViewController: UIViewController {
                 return
             }
             
-            let finalUsername = username.trimmingCharacters(in: CharacterSet.whitespaces)
-            
+            let finalUsername = username.replacingOccurrences(of: " ", with: "").trimmingCharacters(in: .whitespaces)
+            print("this is the final username \(finalUsername)")
             self.fireBaseRef.child("usernames").observeSingleEvent(of: DataEventType.value) { (snapshot) in
                 if let result = snapshot.children.allObjects as? [DataSnapshot] {
                     for child in result {
@@ -61,7 +60,7 @@ class RegisterViewController: UIViewController {
                     }
                     
                     do {
-                        if username != "" && email != "" && password != ""  {
+                        if finalUsername != "" && email != "" && password != ""  {
                             //                if !usersArray.contains(username) {
                             if (self.isUsernameTaken == false) {
                                 Auth.auth().createUser(withEmail: email, password: password) { (user, error) in

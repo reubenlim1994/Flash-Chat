@@ -59,6 +59,7 @@ class WelcomeViewController: UIViewController{
                     if let user = user {
                         let resultJSON = JSON(result!)
                         let username = resultJSON["name"].stringValue
+                        let finalUsername = username.lowercased()
                         let email = resultJSON["email"].stringValue
                         
                         let userDictionary = ["username":username, "email":email]

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20152AA3C5A83A0C894CA4D1 /* Pods_Flash_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0B62DAC601FE60B15217DE /* Pods_Flash_Chat.framework */; };
+		20152AA3C5A83A0C894CA4D1 /* Pods_Flash_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0B62DAC601FE60B15217DE /* Pods_Flash_Chat.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6321A9C31B94EBA10053D2E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6321A9C21B94EBA10053D2E7 /* Images.xcassets */; };
 		6321A9E21B94EBE70053D2E7 /* CustomMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6321A9DB1B94EBE70053D2E7 /* CustomMessageCell.swift */; };
 		6321A9E51B94EBE70053D2E7 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6321A9DE1B94EBE70053D2E7 /* MessageCell.xib */; };
@@ -21,6 +21,7 @@
 		63EBB3051D98004B004175E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EBB3041D98004B004175E5 /* LaunchScreen.storyboard */; };
 		95054CB71F95EB9D002528B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95054CB61F95EB3E002528B5 /* GoogleService-Info.plist */; };
 		95054CB91F960461002528B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95054CB81F960461002528B5 /* User.swift */; };
+		95C7E98A1F9EFA1000538959 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7E9891F9EFA1000538959 /* SettingsTableViewController.swift */; };
 		95D4F0181F9DF72800494473 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D4F0171F9DF72800494473 /* MyProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		95054CB61F95EB3E002528B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		95054CB81F960461002528B5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		95192C581F9875CB0072FF05 /* Flash Chat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Flash Chat.entitlements"; sourceTree = "<group>"; };
+		95C7E9891F9EFA1000538959 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		95D4F0171F9DF72800494473 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +128,7 @@
 				63E28B2D1B9A337600FBF6E0 /* RegisterViewController.swift */,
 				63E28B2E1B9A337600FBF6E0 /* WelcomeViewController.swift */,
 				95D4F0171F9DF72800494473 /* MyProfileViewController.swift */,
+				95C7E9891F9EFA1000538959 /* SettingsTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -193,7 +196,6 @@
 				TargetAttributes = {
 					6321A9B51B94EBA10053D2E7 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = K8S26WV5H4;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -251,6 +253,7 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -263,6 +266,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -318,6 +322,7 @@
 				95D4F0181F9DF72800494473 /* MyProfileViewController.swift in Sources */,
 				63E28B321B9A337600FBF6E0 /* RegisterViewController.swift in Sources */,
 				95054CB91F960461002528B5 /* User.swift in Sources */,
+				95C7E98A1F9EFA1000538959 /* SettingsTableViewController.swift in Sources */,
 				63E28B311B9A337600FBF6E0 /* LogInViewController.swift in Sources */,
 				63E28B2F1B9A337600FBF6E0 /* AppDelegate.swift in Sources */,
 				63E28B301B9A337600FBF6E0 /* ChatViewController.swift in Sources */,
@@ -433,7 +438,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Flash Chat/Flash Chat.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = K8S26WV5H4;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -456,7 +461,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Flash Chat/Flash Chat.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = K8S26WV5H4;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

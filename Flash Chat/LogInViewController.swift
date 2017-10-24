@@ -37,7 +37,7 @@ class LogInViewController: UIViewController {
             if let user = user {
                 let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDel.logUser()
-                User.signIn(userUID: user.uid)
+//                User.signIn(userUID: user.uid)
                 
             } else {
                 let controller = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
