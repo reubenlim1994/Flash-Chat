@@ -29,12 +29,13 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         // set other labels
         let currentUser = Auth.auth().currentUser
         let userRef = firebaseRef.child("user").child((currentUser?.uid)!)
-        
         userRef.observeSingleEvent(of: .value) { (snapshot) in
-            print(snapshot.value)
             let userInfoDictionary = snapshot.value as? [String : AnyObject] ?? [:]
-            self.emailTextLabel.text = userInfoDictionary["email"] as? String
-            self.usernameTextLabel.text = userInfoDictionary["username"] as? String
+
+            if let emailDisplayed = userInfoDictionary["email"] as? String, let usernameDisplayed = userInfoDictionary["username"] as? String {
+                self.emailTextLabel.text = "E-mail :" + emailDisplayed
+                self.usernameTextLabel.text = "Username :" + usernameDisplayed
+            }
         }
         
     
@@ -71,6 +72,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
                 self.storageRef.putData(uploadedImageData, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
                         print(error?.localizedDescription)
+                        return
                     }
                     print(metadata)
                 })

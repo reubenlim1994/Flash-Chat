@@ -27,16 +27,6 @@ class RegisterViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
-//        //check and make username unique
-//        self.fireBaseRef.child("usernames").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-//            if let result = snapshot.children.allObjects as? [DataSnapshot] {
-//                for child in result {
-//                    let username = child.key as String
-//                    self.usersArray.append(username)
-//                }
-//            }})
-//
     
     }
         @IBAction func registerPressed(_ sender: AnyObject) {
@@ -46,7 +36,6 @@ class RegisterViewController: UIViewController {
             }
             
             let finalUsername = username.replacingOccurrences(of: " ", with: "").trimmingCharacters(in: .whitespaces)
-            print("this is the final username \(finalUsername)")
             self.fireBaseRef.child("usernames").observeSingleEvent(of: DataEventType.value) { (snapshot) in
                 if let result = snapshot.children.allObjects as? [DataSnapshot] {
                     for child in result {
@@ -57,6 +46,7 @@ class RegisterViewController: UIViewController {
                             self.isUsernameTaken = true
                             break
                         }
+                        print(self.isUsernameTaken)
                     }
                     
                     do {
@@ -77,7 +67,6 @@ class RegisterViewController: UIViewController {
                                         })
                                         controller.addAction(dismissButton)
                                         self.present(controller, animated: true, completion:nil)
-                                        
                                     } else {
                                         self.presentAlertView(titleMessage: "Error", contentMessage: error?.localizedDescription, dissmissButtonTitle: "Try Again")
                                         

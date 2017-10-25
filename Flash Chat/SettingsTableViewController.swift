@@ -34,6 +34,7 @@ class SettingsTableViewController: UITableViewController {
             }
         
         }
+        
         let dismissButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         controller.addAction(confirmButton)
         controller.addAction(dismissButton)
@@ -42,7 +43,7 @@ class SettingsTableViewController: UITableViewController {
 
         
     }
-    
+   
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
