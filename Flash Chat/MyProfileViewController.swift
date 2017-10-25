@@ -18,6 +18,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var userButtonImageView: UIButton!
     
     let firebaseRef = Database.database().reference()
+    let currentUser = Auth.auth().currentUser
     let storageRef = Storage.storage().reference().child("ProfileImage")
     
     override func viewDidLoad() {
@@ -27,14 +28,13 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         userButtonImageView.clipsToBounds = true
         
         // set other labels
-        let currentUser = Auth.auth().currentUser
         let userRef = firebaseRef.child("user").child((currentUser?.uid)!)
         userRef.observeSingleEvent(of: .value) { (snapshot) in
             let userInfoDictionary = snapshot.value as? [String : AnyObject] ?? [:]
 
             if let emailDisplayed = userInfoDictionary["email"] as? String, let usernameDisplayed = userInfoDictionary["username"] as? String {
-                self.emailTextLabel.text = "E-mail :" + emailDisplayed
-                self.usernameTextLabel.text = "Username :" + usernameDisplayed
+                self.emailTextLabel.text = "E-mail: " + emailDisplayed
+                self.usernameTextLabel.text = "Username: " + usernameDisplayed
             }
         }
         
@@ -74,7 +74,11 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
                         print(error?.localizedDescription)
                         return
                     }
-                    print(metadata)
+                    if let profileImageURL = metadata?.downloadURL()?.absoluteString {
+                        let profileImageDictionary = ["Profile Image URL":profileImageURL]
+                        self.firebaseRef.child("user").child((self.currentUser?.uid)!).updateChildValues(profileImageDictionary)
+                        print(self.currentUser?.uid)
+                    }
                 })
             }
         }
